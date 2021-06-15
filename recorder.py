@@ -9,7 +9,7 @@ VIDEO_LENGTH = 5 # In seconds
 
 cap = cv.VideoCapture(0)
 # Define the codec and create VideoWriter object
-fourcc = cv.VideoWriter_fourcc(*'XVID')
+fourcc = cv.VideoWriter_fourcc(*'mp4v')
 
 buff = Buffer(FPS*VIDEO_LENGTH)
 
@@ -27,7 +27,7 @@ while cap.isOpened():
         break
     if cv.waitKey(1) == ord('r'):
         print("Saving last 5 seconds")
-        filename = "record-{}.avi".format(datetime.today().strftime('%d-%m-%Y-%H-%M-%S'))
+        filename = "record-{}.mp4".format(datetime.today().strftime('%d-%m-%Y-%H-%M-%S'))
         out = cv.VideoWriter(filename, fourcc, FPS, (640, 480))
         # Release everything if job is finished
         for i in buff.getbuff():
