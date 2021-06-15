@@ -3,3 +3,4 @@ __pycache__
 *.avi
 venv
 test.py
+*.mp4
